@@ -61,7 +61,7 @@ Realização de testes no que foi desenvolvido de acordo com os requisitos;
 Implantação em produção do produto final;
 
 # 2. Ecossistema
-![imgur](https://imgur.com/bjGtUZT)
+![tecnologias-thenextcut](https://user-images.githubusercontent.com/80654468/140266158-3c3ccb13-52cd-4de4-8c99-28fe7134699a.png)
 
 # 3. Documentação
 - **Requisitos funcionais:**
@@ -109,9 +109,11 @@ Estes tratam de recursos que não são funcionalidades, mas sim características
 ![image](https://user-images.githubusercontent.com/48540484/91641512-4b714900-e9fb-11ea-96bf-2d0a3128a385.png)
 
 - **Diagrama de Classes:** É a abstração de um objeto da vida real (vida real que será tratada via software), que agrupa dados (atributos) e procedimentos (operações) relacionados ao seu contexto.
-<img width="360" src="src/target/classes/br/static/assets/img/uml.png">
+![uml](https://user-images.githubusercontent.com/80654468/140266633-b2de5b4f-07e3-4ce8-ada7-0da28f800c28.png)
+
 
 - **Diagrama Entidade Relacionamento (DER):** É um modelo conceitual utilizado na Engenharia de Software para descrever os objetos (entidades) envolvidos em um domínio de negócios, com suas características (atributos) e como elas se relacionam entre si (relacionamentos). Em geral, este modelo representa de forma abstrata a estrutura que possuirá o banco de dados da aplicação.
 
-![imgur](https://imgur.com/6iJDjFD)
+![der](https://user-images.githubusercontent.com/80654468/140266619-143e5df1-15af-4f70-8cd9-af3e58686d52.png)
+g
 
