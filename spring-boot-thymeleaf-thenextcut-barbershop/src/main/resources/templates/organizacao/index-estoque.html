@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Estoque</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" th:href="@{/}" th:method="GET">Home</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarT oggle" href="#">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+        </form>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">
+                            <h6>Para Hoje</h6>
+                        </div>
+                        <a class="nav-link" th:href="@{/calendario/servicos/hoje}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div> Para hoje
+                        </a>
+                        <div class="sb-sidenav-menu-heading">
+                            <h6>Agenda</h6>
+                        </div>
+                        <a class="nav-link" th:href="@{/calendario/servicos}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-table"></i>
+                            </div> Histórico de serviços
+                        </a>
+                        <div class="sb-sidenav-menu-heading">
+                            <h6>Organização</h6>
+                        </div>
+                        <a class="nav-link" th:href="@{/organizacao/fluxo-caixa}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-chart-area"></i>
+                            </div> Fluxo de caixa
+                        </a>
+                        <a class="nav-link">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-chart-area"></i>
+                            </div> Itens e despesas
+                        </a>
+                        <div class="sb-sidenav-menu-heading">
+                            <h6>Contatos</h6>
+                        </div>
+                        <a class="nav-link" th:href="@{/agenda/pessoas}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div> Pessoas
+                        </a>
+                        <a class="nav-link" th:href="@{/agenda/fornecedores}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div> Fornecedores
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Desenvolvido por:</div>
+                    <strong><a target="_blank" rel="noopener noreferrer"
+						href="https://www.linkedin.com/in/samuel-de-brito-santos/">Samuel de Brito Santos</a>
+				</div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    <h1 class="mt-4">Estoque de produtos, materiais e despesas</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+                        <li class="breadcrumb-item active">Itens e despesas</li>
+                    </ol>
+                    <div class="card-body">
+                        <h6>Seção destinada para consulta de itens e materiais do salão de beleza. Também é o local destinado para organizar suas despesas, como:<br> Contas, Aluguel e outros.</h6>
+                        <h1>
+                            <a button type="button" class="btn btn-outline-success"
+                                th:href="@{/organizacao/estoque/adicionar}">Adicionar Item </a>
+                        </h1>
+                        <div class="table table-striped">
+                            <br>
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <h4>#</h4>
+                                        </th>
+                                        <th scope="col">
+                                            <h4>Descrição</h4>
+                                        </th>
+                                        <th scope="col">
+                                            <h4>Valor</h4>
+                                        </th>
+                                        <th scope="col">
+                                            <h4>Data compra</h4>
+                                        </th>
+                                        <th scope="col">
+                                            <h4>Status pagamentos</h4>
+                                        </th>
+                                        <th scope="col">
+                                            <h4></h4>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <th:block th:if="${produtos.isEmpty()}">
+                                        <p style="color: red" class="font-italic">Não há Itens cadastrados!</p>
+                                    </th:block>
+
+                                    <tr th:each="produtos : ${produtos}">
+                                        <td scope="row" th:text="${produtosStat.index} + 1"></td>
+                                        <td th:text="${produtos.descricaoProduto}"></td>
+                                        <td th:text="'R$ ' + ${produtos.valor}"></td>
+                                        <td th:text="${#temporals.format((produtos.data), 'dd-MMM-yyyy HH:mm')}"></td>
+                                        <td th:text="${produtos.statusPagamento}"></td>
+                                        <td>
+                                            <div class="btn-group pull-right">
+                                                <a button type="button" class="btn btn-outline-primary"
+                                                    th:href="@{/organizacao/estoque/editar/{id}/produtos(id=${produtos.id})}">Editar
+                                                    </button>
+                                                </a>
+                                                <form
+                                                    th:action="@{/organizacao/estoque/remover/{id}/produto(id=${produtos.id})}"
+                                                    th:method="DELETE">
+                                                    <button type="submit" id="btn-remover"
+                                                        class="btn btn-outline-danger"
+                                                        onclick="alert('Registro removido!')">Remover
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script th:src="@{/js/scripts.js}"></script>
+</body>
+
+</html>

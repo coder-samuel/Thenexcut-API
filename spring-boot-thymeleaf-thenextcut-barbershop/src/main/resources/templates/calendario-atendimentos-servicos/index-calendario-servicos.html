@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Contatos</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" th:href="@{/}" th:method="GET">Home</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle">
+			<i class="fas fa-bars"></i>
+		</button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+        </form>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">
+                            <h6>Para Hoje</h6>
+                        </div>
+                        <a class="nav-link" th:href="@{/calendario/servicos/hoje}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div> Para hoje
+                        </a>
+                        <div class="sb-sidenav-menu-heading">
+                            <h6>Agenda</h6>
+                        </div>
+                        <a class="nav-link">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-table"></i>
+                            </div> Histórico de serviços
+                        </a>
+                        <div class="sb-sidenav-menu-heading">
+                            <h6>Organização</h6>
+                        </div>
+                        <a class="nav-link" th:href="@{/organizacao/fluxo-caixa}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-chart-area"></i>
+                            </div> Fluxo de caixa
+                        </a>
+                        <a class="nav-link" th:href="@{/organizacao/estoque}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-chart-area"></i>
+                            </div> Itens e despesas
+                        </a>
+                        <div class="sb-sidenav-menu-heading">
+                            <h6>Contatos</h6>
+                        </div>
+                        <a class="nav-link" th:href="@{/agenda/pessoas}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div> Pessoas
+                        </a>
+                        <a class="nav-link" th:href="@{/agenda/fornecedores}">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div> Fornecedores
+                        </a>
+                    </div>
+                </div>
+				<div class="sb-sidenav-footer">
+                    <div class="small">Desenvolvido por:</div>
+                    <strong><a target="_blank" rel="noopener noreferrer"
+						href="https://www.linkedin.com/in/samuel-de-brito-santos/">Samuel de Brito Santos</a>
+				</div>
+			</nav>
+		</div>
+		<div id="layoutSidenav_content">
+			<main>
+				<div class="container-fluid">
+					<h1 class="mt-4">Histórico de serviços</h1>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+						<li class="breadcrumb-item active">Histórico de serviços</li>
+					</ol>
+					<h6>Seção destinada para inclusão, alteração e consulta de
+						serviços a serem realizados no Salão, sendo necessario informar dados basicos para consulta.</h6>
+				</div>
+
+				<div class="card-body">
+					<a button type="button" class="btn btn-outline-success" th:href="@{/calendario/servicos/adicionar}">Adicionar
+						novo serviço</a>
+
+						<div class="table .table-sm">
+							<br>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col"><h4>#</h4></th>
+										<th scope="col"><h4>Data/hora</h4></th>
+										<th scope="col"><h4>Cliente</h4></th>
+										<th scope="col"><h4>Contato</h4></th>
+										<th scope="col"><h4>Serviço</h4></th>
+										<th scope="col"><h4>Valor</h4></th>
+										<th scope="col"><h4>Pagamento</h4></th>
+										<th scope="col"><h4>Status</h4></th>
+										<th scope="col"><h4></h4></th>
+									</tr>
+								</thead>
+								<tbody>
+									<th:block th:if="${atendimentosTotais.isEmpty()}">
+										<p style="color: red" class="font-italic">Não há
+											serviços na agenda!</p>
+									</th:block>
+
+									<tr th:each="atendimentosTotais : ${atendimentosTotais}">
+											<td scope="row"
+												th:text="${atendimentosTotaisStat.index} + 1"></td>
+
+											<td th:text="${#temporals.format((atendimentosTotais.dataAtendimento), 'dd-MMM-yyyy HH:mm')}"></td>
+											<td th:text="${atendimentosTotais.pessoa.nome}"></td>
+											<td
+												th:text="${atendimentosTotais.pessoa.contato.telefones[0].numeroTelefone}"></td>
+											<td th:text="${atendimentosTotais.tipoAtendimento}"></td>
+											<td
+												th:text="'R$ ' + ${atendimentosTotais.valorAtendimento}"></td>
+											<td th:text="${atendimentosTotais.statusPagamento}"></td>
+											<td th:block th:if="${atendimentosTotais.atendimentoRealizado == true}">Concluido</th:block>
+											<td th:block th:if="${atendimentosTotais.atendimentoRealizado == false}">A fazer</th:block>
+											<td><div class="btn-group pull-right">
+													<a button type="button" class="btn btn-outline-primary"
+														th:href="@{/calendario/servicos/editar/{id}/servicos(id=${atendimentosTotais.id})}">Editar
+													</a> 																	<form
+													th:action="@{/calendario/servicos/remover/{id}/servico(id=${atendimentosTotais.id})}"
+													th:method="DELETE">
+													<button type="submit" id="btn-remover"
+														class="btn btn-outline-danger" onclick="alert('Registro removido!')">Remover
+													</button>
+												</form>
+													<!-- Modal -->
+													<div class="modal fade" id="modalDeletar" tabindex="-1"
+														role="dialog" aria-labelledby="exampleModalLabel"
+														aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h6 class="modal-title" id="exampleModalLabel">Arrazus
+																		diz:</h6>
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body">O Serviço será
+																	excluido</div>
+																<div class="modal-footer">
+																	<button type="button"
+																		class="btn btn-outline-secondary"
+																		data-dismiss="modal">Cancelar</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+				</div>
+
+			</main>
+		</div>
+	</div>
+	<script src="
+												https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+	<script th:src="@{/js/scripts.js}"></script>
+</body>
+
+</html>
