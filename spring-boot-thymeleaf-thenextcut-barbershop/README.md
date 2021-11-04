@@ -2,7 +2,7 @@
 Projeto com SpringBoot e Thymeleaf para gerenciamento de Agenda de uma Barbearia. <br>
 System for managing salon services. Calendar management as well as the establishment's service agenda will be available.
 
-This article will walk you through building an application called Salao Arrazus.
+This article will walk you through building an application called The next cut  Barbershop.
 
 Follow each step to build an app from scratch, or skip to the end get the source for this article. You can also use almost any existing Maven webapp project.
 
