@@ -106,14 +106,15 @@ Estes tratam de recursos que não são funcionalidades, mas sim características
 			→ Caso ocorra algum problema na aplicação, que não foi identificado nos testes, este estara disponivel em arquivos de logs do sistema (.txt);
 
 - **Diagrama de Caso de Uso:** Auxilia no levantamento dos requisitos funcionais do sistema, descrevendo um conjunto de funcionalidades do sistema e suas interações com elementos externos.
-![image](https://user-images.githubusercontent.com/48540484/91641512-4b714900-e9fb-11ea-96bf-2d0a3128a385.png)
+![casodeuso](https://user-images.githubusercontent.com/80654468/140267111-809e7f67-da26-4ac3-8c60-e88c73d1d951.png)
 
 - **Diagrama de Classes:** É a abstração de um objeto da vida real (vida real que será tratada via software), que agrupa dados (atributos) e procedimentos (operações) relacionados ao seu contexto.
+
 ![uml](https://user-images.githubusercontent.com/80654468/140266633-b2de5b4f-07e3-4ce8-ada7-0da28f800c28.png)
 
 
 - **Diagrama Entidade Relacionamento (DER):** É um modelo conceitual utilizado na Engenharia de Software para descrever os objetos (entidades) envolvidos em um domínio de negócios, com suas características (atributos) e como elas se relacionam entre si (relacionamentos). Em geral, este modelo representa de forma abstrata a estrutura que possuirá o banco de dados da aplicação.
 
 ![der](https://user-images.githubusercontent.com/80654468/140266619-143e5df1-15af-4f70-8cd9-af3e58686d52.png)
-g
+
 
