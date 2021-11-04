@@ -1,4 +1,4 @@
-# spring-boot-thymeleaf-salaoArraso
+#  The next cut - Barbershop
 Projeto com SpringBoot e Thymeleaf para gerenciamento de Agenda de uma Barbearia. <br>
 System for managing salon services. Calendar management as well as the establishment's service agenda will be available.
 
@@ -11,12 +11,12 @@ Follow each step to build an app from scratch, or skip to the end get the source
 * Basic Java knowledge, including an installed version of the JVM and Maven.
 * Basic Git knowledge, including an installed version of Git.
 
-### How Does Salão Arrazus Work?
+### How Does The next cut - Barbershop Work?
 
 When using Webapp Runner you'll launch your application locally and on Heroku with a command like this:
     
     :::term
-    $ java -jar salao-arrazus.jar application.war
+    $ java -jar thenextcut-barbershop.jar application.war
     INFO: Starting ProtocolHandler ["http-8080"]
 
 The next cut Barbershop will then launch a Tomcat instance with the given war deployed to it. This takes advantage of Tomcat's embedded APIs and is similar to an option that Jetty offers: [Jetty Runner](http://blogs.webtide.com/janb/entry/jetty_runner).
