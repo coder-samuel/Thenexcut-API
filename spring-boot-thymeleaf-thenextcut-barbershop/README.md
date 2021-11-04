@@ -41,7 +41,8 @@ Congratulations! Your web app should now be up and running on Heroku. Open it in
 
 If you want to skip the creation steps you can clone the finished sample (without memcache backed session):
 
-    $ git clone git@github.com:math-ferreira/spring-boot-thymeleaf-salaoArraso.git
+    $ git clone git@github.com:coder-samuel/Thenexcut-API.git
+
 
 # 1. Passos realizados no Projeto
 1. Definição de Requisitos:
@@ -60,7 +61,7 @@ Realização de testes no que foi desenvolvido de acordo com os requisitos;
 Implantação em produção do produto final;
 
 # 2. Ecossistema
-![image](https://imgur.com/bjGtUZT)
+![imgur](https://imgur.com/bjGtUZT)
 
 # 3. Documentação
 - **Requisitos funcionais:**
@@ -108,9 +109,9 @@ Estes tratam de recursos que não são funcionalidades, mas sim características
 ![image](https://user-images.githubusercontent.com/48540484/91641512-4b714900-e9fb-11ea-96bf-2d0a3128a385.png)
 
 - **Diagrama de Classes:** É a abstração de um objeto da vida real (vida real que será tratada via software), que agrupa dados (atributos) e procedimentos (operações) relacionados ao seu contexto.
-![image](https://imgur.com/LhhQ1BE)
+![imgur](https://imgur.com/LhhQ1BE)
 
 - **Diagrama Entidade Relacionamento (DER):** É um modelo conceitual utilizado na Engenharia de Software para descrever os objetos (entidades) envolvidos em um domínio de negócios, com suas características (atributos) e como elas se relacionam entre si (relacionamentos). Em geral, este modelo representa de forma abstrata a estrutura que possuirá o banco de dados da aplicação.
 
-![image](https://imgur.com/6iJDjFD)
+![imgur](https://imgur.com/6iJDjFD)
 
